@@ -1,0 +1,3 @@
+1.创建新项目 laravel new 项目
+2.一并创建模型/迁移/控制器 php artisan make:model 模型 -mr
+						   php artisan make:model 模型 -mc

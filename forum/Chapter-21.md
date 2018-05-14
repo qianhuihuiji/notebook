@@ -26,7 +26,7 @@ public function isFavorited()
 所以我们每增加一个回复，`sql`语句就会增加一条：
 ![file](https://lccdn.phphub.org/uploads/images/201805/13/19192/77ZQuvfpL9.png?imageView2/2/w/1240/h/0)
 在我们当前的场景中，每个`reply`我们都想要获取`owner`和`favorites`关联，所以我们可以利用模型的`$with`属性来优化这个问题：
-`C:\Users\meiyiming\Code\forum\app\Reply.php`
+`forum\app\Reply.php`
 ```
 <?php
 
@@ -87,7 +87,7 @@ class Thread extends Model
 好了，现在我们还剩下一个问题需要解决：
 ![file](https://lccdn.phphub.org/uploads/images/201805/14/19192/MZAFZLbSiI.png?imageView2/2/w/1240/h/0)
 由于我们修改了代码，所以我们出现了如上的问题。我们使用`getFavoritesCountAttribute()`方法来为模型实例添加`favorites_count`属性：
-`C:\Users\meiyiming\Code\forum\app\Reply.php`
+`forum\app\Reply.php`
 ```
 .
 .
@@ -146,7 +146,7 @@ trait Favoritable
 }
 ```
 再引用：
-`C:\Users\meiyiming\Code\forum\app\Reply.php`
+`forum\app\Reply.php`
 ```
 <?php
 

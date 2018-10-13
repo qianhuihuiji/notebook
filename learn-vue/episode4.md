@@ -1,5 +1,5 @@
 ### 本节说明
-* 对应第 3 小节：Vue Event Listener
+* 对应第 4 小节：Vue Event Listener
 
 
 ### 本节内容

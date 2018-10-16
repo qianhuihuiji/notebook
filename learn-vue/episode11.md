@@ -3,6 +3,7 @@
 
 ### 本节内容
 接下来来做第三个练习：`Tabs`组件，我们的例子从 [Bulma](https://bulma.io/documentation/components/tabs/) 网站选取。我们期望的组件将会向下面那样使用：
+
 *index.html*
 ```
 <!DOCTYPE html>

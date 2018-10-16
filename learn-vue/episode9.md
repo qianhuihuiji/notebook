@@ -5,6 +5,7 @@
 接下来的几节我们来做一些练习：如何将`html`模块抽取出组件。本节我们来练习`message`组件，我们的例子从 [Bulma](https://bulma.io/documentation/components/message/) 网站选取：
 ![file](https://lccdn.phphub.org/uploads/images/201810/15/19192/qkhhFU07X8.png?imageView2/2/w/1240/h/0)
 首先我们需要引入样式跟组件：
+
 *index.html*
 ```
 <!DOCTYPE html>
@@ -41,6 +42,7 @@
 查看页面：
 ![file](https://lccdn.phphub.org/uploads/images/201810/15/19192/kHrMCY0J6o.png?imageView2/2/w/1240/h/0)
 现在我们来抽取成组件：我们的组件包含三个部分，标题，内容和删除按钮，所以我们会有`title`跟`body`属性，已经删除操作。我们将通过是否显示组件可见来控制删除操作。下面建立组件：
+
 *main.js*
 ```
 Vue.component('message',{
@@ -70,6 +72,7 @@ new Vue({
 });
 ```
 接着我们给组件的`prop`传入静态值：
+
 *index.html*
 ```
 .

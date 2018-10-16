@@ -34,6 +34,7 @@
 ```
 ![file](https://lccdn.phphub.org/uploads/images/201810/12/19192/5ejiObchvU.png?imageView2/2/w/1240/h/0)
 接下来我们加点新东西：我们添加一个输入框跟按钮，点击按钮时将输入框中的名字添加到名字列表中。本节我们先使用常规的`JavaScript`方式：
+
 *index.html*
 ```
 .
@@ -58,5 +59,6 @@
 		.
 ```
 然后我们查看效果：
+
 ![file](https://lccdn.phphub.org/uploads/images/201810/12/19192/x7D6yHA751.gif?imageView2/2/w/1240/h/0)
 下一节我们将采用`Vue`的方式实现此效果。

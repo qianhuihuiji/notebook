@@ -3,6 +3,7 @@
 
 ### 本节内容
 本节我们开始学习在组件中引入组件。上一节我们定义了一系列任务列表，本节我们定义一个`task-list`组件来显示任务列表：
+
 *main.js*
 ```
 Vue.component('task-list',{
@@ -32,6 +33,7 @@ new Vue({
 })
 ```
 然后使用该组件：
+
 *index.html*
 ```
 <!DOCTYPE html>

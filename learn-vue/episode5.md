@@ -4,7 +4,8 @@
 
 ### 本节内容
 我们可以传给 `v-bind:class` 一个对象，以动态地切换 class：
-`index.html`
+
+*index.html*
 ```
 <!DOCTYPE html>
 

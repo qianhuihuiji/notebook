@@ -13,6 +13,7 @@
 <script src="https://unpkg.com/vue@2.1.3/dist/vue.js"></script>
 ```
 通常我们使用`JavaScript`方式绑定数据时会是如下写法：
+
 *learn-vue\index.html*
 ```
 <!DOCTYPE html>
@@ -69,6 +70,7 @@
 </html>
 ```
 我们为 `id`为`root`的元素创建了一个 `Vue`实例，并将`message`绑定给`input`：
+
 ![file](https://lccdn.phphub.org/uploads/images/201810/12/19192/byu52YUOtz.png?imageView2/2/w/1240/h/0)
 现在数据和 DOM 已经被建立了关联，所有东西都是**响应式**的。我们来确认一下：
 ```

@@ -3,6 +3,7 @@
 
 ### 本节内容
 接下来来做第二个练习：`Modal`组件，我们的例子从 [Bulma](https://bulma.io/documentation/components/modal/) 网站选取。我们需要引入样式跟组件：
+
 *index.html*
 ```
 <!DOCTYPE html>
@@ -37,6 +38,7 @@
 现在打开浏览器：
 ![file](https://lccdn.phphub.org/uploads/images/201810/15/19192/5IBguKt2bw.png?imageView2/2/w/1240/h/0)
 接下来我们要做到事情是：将`Modal`抽取成组件，在页面点击按钮显示组件，点击组件中的删除图标（图片右上角）隐藏组件。我们先来完成前两个步骤：
+
 *main.js*
 ```
 Vue.component('modal',{
@@ -62,6 +64,7 @@ new Vue({
 });
 ```
 我们默认组件不显示，当点击`Show Modal`按钮之后再显示：
+
 *index.html*
 ```
 <!DOCTYPE html>
@@ -92,6 +95,7 @@ new Vue({
 现在查看效果：
 ![file](https://lccdn.phphub.org/uploads/images/201810/15/19192/Pk9O54HTxk.gif?imageView2/2/w/1240/h/0)
 然后我们来完成第三步。我们利用`Vue`的 [$emit](https://cn.vuejs.org/v2/api/#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95-%E4%BA%8B%E4%BB%B6) 触发当前实例上的`close`事件，在`close`事件中，我们设置`showModal`属性为`false`：
+
 *main.js*
 ```
 Vue.component('modal',{

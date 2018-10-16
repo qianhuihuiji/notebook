@@ -4,6 +4,7 @@
 
 ### 本节内容
 在上一节，我们用`JavaScript`的方式将 name 添加到 names 列表当中时，我们是这么做的：首先我们注册一个 click 事件，然后我们获取 input 元素的值，然后我们再更新列表。本节我们使用`Vue`的方式来实现：
+
 *index.html*
 ```
 <!DOCTYPE html>
@@ -49,4 +50,5 @@
 > 注：@click 为 v-on:click的简写方式
 
 我们来查看效果：
+
 ![file](https://lccdn.phphub.org/uploads/images/201810/13/19192/ESbjMKgLf4.gif?imageView2/2/w/1240/h/0)

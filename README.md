@@ -6,6 +6,5 @@
 ## 2.learn-vue 
 Vue 2 教程的学习笔记，Learn vue 2 step by step
 
-
 ## 3.testing-laravel
 Testing Laravel 教程的学习笔记

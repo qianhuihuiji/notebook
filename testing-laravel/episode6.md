@@ -47,7 +47,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name','size'];
 }
 ```
 再次测试：
@@ -70,7 +70,7 @@ class Team extends Model
         $team->add($user);
         $team->add($userTwo);
 
-        $this->assertCount(2,$team->count());
+        $this->assertEquals(2,$team->count());
     }
 }
 ```
@@ -86,6 +86,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Team::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence,
+		'size' => 5
     ];
 });
 
@@ -94,4 +95,254 @@ $factory->define(App\Team::class, function (Faker $faker) {
 ![file](https://lccdn.phphub.org/uploads/images/201810/19/19192/A3a5XUFzCK.png?imageView2/2/w/1240/h/0)
 根据报错信息向前推进，修改迁移文件：
 
-**
+*database\migrations\{timestamp}_create_teams_table.php*
+```
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateTeamsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('teams', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->integer('size')->unsigned();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('teams');
+    }
+}
+
+```
+再次测试：
+![file](https://lccdn.phphub.org/uploads/images/201810/22/19192/s2CxQXi43V.png?imageView2/2/w/1240/h/0)
+添加`add`方法：
+
+*app\Team.php*
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Team extends Model
+{
+    protected $fillable = ['name','size'];
+
+    public function add($user)
+    {
+        $this->members()->save($user);
+    }
+
+    public function members()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function count()
+    {
+        return $this->members()->count();
+    }
+}
+
+```
+
+我们定义了模型关联，需要修改`users`表结构：
+
+*database\migrations\2014_10_12_000000_create_users_table.php*
+```
+	.
+	.
+	public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('team_id')->unsigned()->nullable()->index();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+	.
+	.
+```
+
+再次运行测试：
+![file](https://lccdn.phphub.org/uploads/images/201810/22/19192/INwIUfyYs0.png?imageView2/2/w/1240/h/0)
+
+接下来我们添加第二个测试：设置最大组员人数。当超过最大组员人数时，抛出异常：
+
+*tests\Unit\TeamTest.php*
+```
+	.
+	.
+	/** @test */
+    public function a_team_has_a_maximum_size()
+    {
+        $team = factory('App\Team')->create(['size' => 2]);
+
+        $user = factory('App\User')->create();
+        $userTwo = factory('App\User')->create();
+
+        $team->add($user);
+        $team->add($userTwo);
+
+        $this->assertEquals(2,$team->count());
+
+        $this->expectException('Exception');
+
+        $userThree = factory('App\User')->create();
+
+        $team->add($userThree);
+    }
+}
+```
+我们创建了一个最大人数为 2 的`Team`，当我们试图添加第三个组员时，应该抛出异常：
+
+*app\Team.php*
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Team extends Model
+{
+    protected $fillable = ['name','size'];
+
+    public function add($user)
+    {
+        $this->guardAgainstTooManyMembers();
+
+        $this->members()->save($user);
+    }
+
+    public function members()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function count()
+    {
+        return $this->members()->count();
+    }
+
+    public function guardAgainstTooManyMembers()
+    {
+        if($this->members()->count() >= $this->size){
+            throw new \Exception;
+        }
+    }
+}
+```
+运行测试：
+![file](https://lccdn.phphub.org/uploads/images/201810/22/19192/5uaxdFbMk0.png?imageView2/2/w/1240/h/0)
+让我们再来对添加成员做些改进：既能添加单个成员，也能添加一次性添加多个成员。新增测试：
+
+```
+	.
+	.
+	/** @test */
+    public function a_team_can_add_members()
+    {
+        $team = factory('App\Team')->create();
+
+        $user = factory('App\User')->create();
+        $userTwo = factory('App\User')->create();
+
+        $team->add($user);
+        $team->add($userTwo);
+
+        $this->assertEquals(2,$team->count());
+    }
+
+    /** @test */
+    public function a_team_can_add_multiple_members_at_once()
+    {
+        $team = factory('App\Team')->create();
+
+        $users = factory('App\User',2)->create();
+
+        $team->add($users);
+
+        $this->assertEquals(2,$team->count());
+    }
+	.
+	.
+```
+运行测试当然是不会通过的：
+![file](https://lccdn.phphub.org/uploads/images/201810/22/19192/nsq05Y6qLf.png?imageView2/2/w/1240/h/0)
+
+我们来修改`add()`方法：
+
+*app\Team.php*
+```
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Team extends Model
+{
+    protected $fillable = ['name','size'];
+
+    public function add($user)
+    {
+        $this->guardAgainstTooManyMembers();
+
+        if($user instanceof User) {
+            return  $this->members()->save($user);
+        }
+
+        $this->members()->saveMany($user);
+    }
+	.
+	.
+```
+运行测试：
+![file](https://lccdn.phphub.org/uploads/images/201810/22/19192/2SDMQyDNsA.png?imageView2/2/w/1240/h/0)
+但是我们发现保存用户的两行代码仅仅是方法名有所区别，所以我们来做点重构：
+
+```
+.
+.
+public function add($user)
+{
+	$this->guardAgainstTooManyMembers();
+
+
+	$method = $user instanceof User ? 'save' : 'saveMany';
+
+	$this->members()->$method($user);
+}
+.
+.
+```
+再次测试：
+![file](https://lccdn.phphub.org/uploads/images/201810/22/19192/xrzc4y0omL.png?imageView2/2/w/1240/h/0)
+
+然后我们还有两个测试：删除成员和清空成员，这个就当作个人练习，我们下节见。

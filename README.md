@@ -11,3 +11,6 @@ Testing Laravel 教程的学习笔记
 
 ## 4.how-to-read-code
 How to Read Code 教程的学习笔记
+
+## 5.Authentication-Techniques
+Laravel Authentication Techniques 的学习笔记

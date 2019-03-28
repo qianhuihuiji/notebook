@@ -81,4 +81,4 @@ public static function replaceLinks($version, $content)
 
 ![file](https://iocaffcdn.phphub.org/uploads/images/201903/12/19192/ljIUbIEqZl.png!large)
 
-这样我们就在页面获取到了正确版本的链接地址了。至此，我们已经知道当我们访问路由时，应用是如何处理请求，如何渲染页面了，下一节我们继续前进。
+这样我们就在页面获取到了正确版本的链接地址了。至此，我们已经知道当我们访问路由时，应用是如何处理请求、如何将 `markdown` 格式的文本转换成 `html` 格式了。下一节我们继续前进，探究视图如何渲染出来。

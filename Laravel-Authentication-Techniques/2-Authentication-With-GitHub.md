@@ -89,4 +89,27 @@ public function handleProviderCallback()
 
 ![file](../images/authentication-techniques/2-6.png)
 
-已经成功获取到用户的信息！
+已经成功获取到用户的信息！接下来我们就可以将获取到的用户信息保存到系统当中，并进行登录。示例代码如下：
+
+```
+public function handleProviderCallback()
+{
+    $githubUser = Socialite::driver('github')->user();
+    // dd($githubUser);
+    $user = $this->findOrCreate($githubUser);
+    
+    Auth::login($user);
+}
+
+public function findOrCreate($githubUser)
+{
+    $user = User::firstOrCreate(
+        ['email' => $githubUser->email],
+        ['name' => $githubUser->nickname]
+    );
+
+    return $user;
+}
+```
+
+要保存的信息字段以实际设计为准，至此，GitHub 登录的流程已经完成了！

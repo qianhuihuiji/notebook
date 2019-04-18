@@ -1,5 +1,6 @@
 ### 本节说明
 * 对应第 2 小节：Authentication With GitHub
+* 注：使用的版本为 `Laravel 5.8`
 
 ### 本节内容
 本节我们来学习第三方登录，我们将以 GitHub 登录作为示例。首先我们需要安装 `laravel/socialite` 包到项目中：

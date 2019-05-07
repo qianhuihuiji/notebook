@@ -130,7 +130,7 @@ data() {
 }
 
 post(url) {
-    this.submit('post',url);
+    return this.submit('post',url);
 }
 .
 .

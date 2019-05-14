@@ -14,3 +14,6 @@ How to Read Code 教程的学习笔记
 
 ## 5.Authentication-Techniques
 Laravel Authentication Techniques 的学习笔记
+
+## 6.Queue-It-Up
+Laravel Queue It Up 的学习笔记

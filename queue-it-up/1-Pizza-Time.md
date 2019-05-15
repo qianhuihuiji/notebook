@@ -11,5 +11,7 @@
 ```
 $ laravel new queues-series
 ```
+>使用的 `Laravel` 版本是 `5.8.16`
+
 在下一节我们正式开启旅程！
 

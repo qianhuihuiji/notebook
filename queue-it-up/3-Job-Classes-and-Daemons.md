@@ -72,7 +72,7 @@ class ReconcileAccount implements ShouldQueue
 
 ![file](../images/queue-it-up/3-1.png)
 
-同时日志会被打印出来。注意 `SerializesModels` Contract，`Laravel` 利用它来进行模型实例的序列化与反序列化：我们在构造函数中注入实例后，当任务入队列时，`SerializesModels` Contract 会先将模型序列化；当任务出队列执行时，`SerializesModels` Contract 会先将序列化后的模型实例反序列化，让我们能够像平常一样进行调用。比如我们可以像下面这样注入一个 `User` 的实例:
+同时日志会被打印出来。注意 `SerializesModels` Contract，`Laravel` 利用它来进行模型实例的序列化与反序列化：我们在构造函数中注入实例后，当任务入队列时，`SerializesModels` Contract 会先序列化模型 ID 字段；当任务出队列执行时，`SerializesModels` Contract 会先根据序列化后的模型实例的 ID 反序列化出模型实例，让我们能够像平常一样进行调用。比如我们可以像下面这样注入一个 `User` 的实例:
 
 *app/Jobs/ReconcileAccount.php*
 
@@ -144,6 +144,40 @@ Route::get('/', function () {
 [2019-05-15 22:04:11] local.DEBUG: Record someone:Joey Lebsack
 ```
 
-下一节我们继续前进。
+并且我们可以在 `handle()` 方法中注入任何我们想要注入的类，比如我们来存储一个文件，那你就可以像下面这样做：
 
+*app/Jobs/ReconcileAccount.php*
 
+```
+<?php
+
+namespace App\Jobs;
+
+use App\User;
+use Illuminate\Filesystem\Filesystem;
+.
+.
+
+class ReconcileAccount implements ShouldQueue
+{
+    .
+    .
+    public function handle(Filesystem $file)
+    {
+        $file->put(public_path('test.txt'),'Recording ' . $this->user->name);
+
+        logger('Record someone:' . $this->user->name);
+    }
+}
+
+```
+
+别忘了重新执行 `php artisan queue:work`，然后刷新页面，你就会看到生成的 `test.txt` 文件了。
+
+*public/test.txt*
+
+```
+Recording Joey Lebsack
+```
+
+下一节我们继续前进。

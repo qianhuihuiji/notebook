@@ -1,6 +1,6 @@
 ### 本节说明
 
-* 对应第 1 小：Installation and a Visitor Counter
+* 对应第 1 小节：Installation and a Visitor Counter
 
 ### 本节内容
 
@@ -55,6 +55,24 @@ Route::get('/', function () {
 
 现在我们每次访问页面都会使得访问数自增。
 
->注：有关 `Redis` 的命令大全，可以去 `Redis` [官网](https://redis.io/commands) 查看。
+>注1：有关 `Redis` 的命令大全，可以去 `Redis` [官网](https://redis.io/commands) 查看。
+
+>注2：可以使用 `redis-cli` 命令行直接与 `Redis` 进行交互，但是需要注意的一点是，`Laravel` 默认会给我们定义的 `key` 加上前缀。由于我们是学习 `Redis`，所以我们来设置不加前缀：
+
+*config/database.php*
+
+```
+.
+'redis' => [
+
+    'client' => env('REDIS_CLIENT', 'predis'),
+
+    'options' => [
+        'cluster' => env('REDIS_CLUSTER', 'predis'),
+        'prefix' => null,
+    ],
+.
+.
+```
 
 

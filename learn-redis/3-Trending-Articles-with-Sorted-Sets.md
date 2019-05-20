@@ -198,7 +198,7 @@ Route::get('/articles/{id}',function ($id) {
 
 >顺便问下，你知道为什么 `/articles/trending` 路由在前面吗？
 
-在存入 `Redis` 时，`Laravel` 会自动将模型进行序列化；在`/articles/trending` 路由中，我们会取出 `score` 最高的三个 `article`：
+在存入 `Redis` 时，`Laravel` 会自动将模型进行 `json_encode`；在`/articles/trending` 路由中，我们会取出 `score` 最高的三个 `article`：
 
 ![file](../images/learn-redis/3-1.png)
 

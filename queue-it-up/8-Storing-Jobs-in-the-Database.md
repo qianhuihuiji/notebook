@@ -21,7 +21,7 @@ php artisan queue:table
 php artisan migrate
 ```
 
-![file](../images/queue-it-up/7-1.png)
+![file](../images/queue-it-up/8-1.png)
 
 现在队列任务存储于数据库中，当任务执行之后，任务会从表中删除：
 

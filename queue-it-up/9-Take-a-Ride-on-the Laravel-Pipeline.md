@@ -9,7 +9,7 @@
 * [Laravel 中的 Pipeline — 管道设计范式](https://learnku.com/laravel/t/7543/pipeline-pipeline-design-paradigm-in-laravel)
 * [Laravel Pipeline 组件的实现原理](https://learnku.com/articles/2769/laravel-pipeline-realization-of-the-principle-of-single-component)
 
-总的说来，通过 `Pipline`，你能够流畅地在若干个类之间传递一个对象，从而执行一个任意类型的任务，一旦所有的任务都被执行完，就会将结果值返回。我们来看一个 `Pipline` 类文件的源码：
+总的说来，通过 `Pipline`，你能够流畅地在若干个类之间传递一个对象，从而执行一个任意类型的任务，一旦所有的任务都被执行完，就会将结果值返回。我们来看一下 `Pipline` 类文件的源码：
 
 *vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php*
 

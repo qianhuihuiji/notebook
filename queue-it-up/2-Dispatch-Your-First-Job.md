@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 >`logger()` 辅助函数会帮我们打印出日志
 
-现在当你访问 `queues-series.test` 时，你会发现日志时同步打出的。我们来看一下配置文件：
+现在当你访问 [http://queues-series.test](http://queues-series.test) 时，你会发现日志时同步打出的。我们来看一下配置文件：
 
 *config/queue.php*
 
@@ -69,5 +69,5 @@ Route::get('/', function () {
 });
 ```
 
->需要我们开启队列任务监听：`php artisan queue:work`
+>注：需要我们开启队列任务监听：`php artisan queue:work`
 

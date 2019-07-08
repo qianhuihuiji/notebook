@@ -21,7 +21,7 @@ public function onQueue($queue)
 .
  ```
 
- >注：队列名称是自定义的，不同特殊配置
+ >注：队列名称是可以自定义的
 
  比如我们把任务放进 `high` 队列中：
 
@@ -76,7 +76,7 @@ php artisan queue:work --queue="high,default"
 
 当然，`Horizon` 为我们提供了相关配置，你只需像下面这样配置即可：
 
-**
+*config/horizon.php*
 
 ```
     .

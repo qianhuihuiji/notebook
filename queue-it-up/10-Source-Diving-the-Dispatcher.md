@@ -1,6 +1,6 @@
 ### 本节说明
 
-* 对应第 10 小节：Sourcediving the Dispatcher
+* 对应第 10 小节：Source Diving the Dispatcher
 
 ### 本节内容
 

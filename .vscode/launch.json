@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Practice",
+            "request": "launch",
+            "mainClass": "Practice",
+            "projectName": "notebook_fcc970ce"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - StdDrawExample",
             "request": "launch",
             "mainClass": "StdDrawExample",

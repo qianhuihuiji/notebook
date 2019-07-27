@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Rolls",
+            "request": "launch",
+            "mainClass": "Rolls",
+            "projectName": "notebook_fcc970ce"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Filps",
+            "request": "launch",
+            "mainClass": "Filps",
+            "projectName": "notebook_fcc970ce"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Counter",
+            "request": "launch",
+            "mainClass": "Counter",
+            "projectName": "notebook_fcc970ce"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Practice",
             "request": "launch",
             "mainClass": "Practice",

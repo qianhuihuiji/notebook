@@ -22,7 +22,7 @@
  *
  ******************************************************************************/
 
-// package edu.princeton.cs.algs4;
+// package algorithms.common;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

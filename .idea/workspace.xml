@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4129681d-d972-420e-a00f-b25e3d2011fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Refactoring:Improving the Design of Existing Code/Chapter 1/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Refactoring:Improving the Design of Existing Code/Chapter 1/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Refactoring:Improving the Design of Existing Code/Chapter 1/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Refactoring:Improving the Design of Existing Code/Chapter 1/Customer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Refactoring:Improving the Design of Existing Code/Chapter 1/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+            <state relative-caret-position="429">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="28" />
               <folding>
                 <element signature="e#126#127#0" expanded="true" />
                 <element signature="e#154#155#0" expanded="true" />
@@ -132,6 +128,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Refactoring:Improving the Design of Existing Code/Chapter 1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -165,12 +162,12 @@
       <updated>1563862086571</updated>
       <workItem from="1563862087858" duration="68000" />
       <workItem from="1564047075959" duration="4000" />
-      <workItem from="1569076508327" duration="2119000" />
+      <workItem from="1569076508327" duration="3137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2191000" />
+    <option name="totallyTimeSpent" value="3209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -184,6 +181,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="JRebel Executor" />
       <window_info anchor="bottom" id="JRebel Console" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -253,8 +251,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Refactoring:Improving the Design of Existing Code/Chapter 1/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        <state relative-caret-position="429">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="28" />
           <folding>
             <element signature="e#126#127#0" expanded="true" />
             <element signature="e#154#155#0" expanded="true" />
